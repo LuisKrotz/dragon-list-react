@@ -1,0 +1,55 @@
+.App {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: $color-black;
+    background-color: $color-white;
+    padding-top: to-rem($main-padding);
+    padding-bottom: to-rem($main-padding);
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.nav {
+    background: $color-white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: to-rem(64);
+    z-index: $z-header;
+    height: to-rem(64);
+
+    &-flex {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-logo {
+        height: to-rem(64);
+        object-fit: contain;
+        display: block;
+        margin-left: to-rem(-15);
+        width: to-rem(53);
+
+        @include layout-375() {
+            width: to-rem(75);
+        }
+
+        @include layout-414() {
+            width: to-rem(95);
+        }
+    }
+
+    &-link {
+        font-weight: bold;
+        color: $color-black;
+        line-height: to-rem(64);
+
+        &.router-link-exact-active {
+            color: $color-accent-2;
+        }
+    }
+}

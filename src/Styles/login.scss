@@ -1,0 +1,103 @@
+.login {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+
+    @include layout-375() {
+        max-width: to-rem(320);
+    }
+
+    &-field {
+        text-align: left;
+        position: relative;
+        padding-bottom: to-rem(14);
+    }
+
+    &-label,
+    &-input {
+        display: block;
+        font-size: to-rem(15);
+    }
+
+    &-label {
+        color: lighten($color-black, 20%);
+    }
+
+    &-error {
+        display: block;
+        padding-top: to-rem(5);
+        font-size: to-rem(15);
+        color: $color-error;
+    }
+
+    &-input {
+        outline: none;
+        transition: border-color .3s linear;
+        box-sizing: border-box;
+        border: 1px solid lighten($color-black, 80%);
+        color: $color-black;
+        line-height: to-rem(34);
+        min-width: 100%;
+        padding: 0 to-rem(8);
+
+        &:focus {
+            border-color: $color-black;
+        }
+    }
+
+    &-submit,
+    &-reset {
+        outline: none;
+        display: block;
+        height: to-rem(48);
+        line-height: to-rem(48);
+        font-size: to-rem(15);
+        box-sizing: border-box;
+    }
+
+    &-submit {
+        transition: color .3s ease-out, background-color .3s ease-out;
+        font-weight: 700;
+        border: 2px solid $color-accent-1;
+        background: $color-accent-1;
+        color: $color-white;
+        padding: 0 to-rem(21);
+        margin-top: to-rem(7);
+        min-width: 100%;
+
+        &:hover,
+        &:focus {
+            color: $color-accent-1;
+            background: none;
+        }
+    }
+
+    &-reset {
+        border: none;
+        position: relative;
+        padding: 0;
+        color: lighten($color-black, 30%);
+        background: none;
+        margin: to-rem(7) auto;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+
+        &:before {
+            font-weight: 700;
+            content: ' ? ';
+            position: relative;
+            display: inline-block;
+            background: $color-accent-2;
+            color: $color-white;
+            border-radius: 100%;
+            margin-right: to-rem(5);
+            width: to-rem(21);
+            height: to-rem(21);
+            line-height: to-rem(21);
+            font-size: to-rem(15);
+        }
+    }
+}

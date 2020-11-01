@@ -1,0 +1,200 @@
+.dragon-list {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+
+    @include layout-768() {
+        border-radius: to-rem(5);
+        box-shadow: -3px -3px 8px 0 lighten($color-white, 20%),
+                    3px 3px 8px 0 darken($color-white, 6%);
+    }
+
+    &-header {
+        display: none;
+
+        @include layout-768() {
+            font-weight: 700;
+            text-align: left;
+            position: relative;
+            display: block;
+            height: to-rem(64);
+            line-height: to-rem(64);
+            border-bottom: 3px solid $color-accent-2;
+            box-sizing: border-box;
+            padding: 0 to-rem(8);
+        }
+    }
+
+    &-item {
+        @include layout-768() {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        &.header {
+            display: none;
+
+            @include layout-768() {
+                display: grid;
+                margin-bottom: to-rem(8);
+            }
+        }
+    }
+
+    &-scrollable {
+        @include layout-768() {
+            overflow-y: scroll;
+                                            // Header and Bottom Paddings + Title row height + First row height
+            max-height: calc(100vh - #{to-rem($main-padding * 2 + 72 + 56)});
+        }
+    }
+
+    &-cell {
+        position: relative;
+        text-align: left;
+        padding: 0 to-rem(8);
+
+
+        &.buttons {
+            padding-top: to-rem(14);
+            padding-bottom: to-rem(40);
+
+            @include layout-768() {
+                padding-top: 0;
+                padding-bottom: to-rem(8);
+            }
+        }
+
+        &.create {
+            padding-top: to-rem(14);
+            padding-bottom: to-rem(64);
+
+            @include layout-768() {
+                padding-top: 0;
+                padding-bottom: to-rem(8);
+            }
+        }
+    }
+
+    &-label {
+        display: block;
+        font-size: to-rem(15);
+        color: lighten($color-black, 50%);
+        padding-top: to-rem(14);
+        padding-bottom: to-rem(8);
+
+        @include layout-768() {
+            display: none;
+        }
+    }
+
+    &-error {
+        display: block;
+        padding-top: to-rem(5);
+        font-size: to-rem(15);
+        color: $color-error;
+    }
+
+    &-input,
+    &-link {
+        outline: none;
+        transition: border-color .3s linear;
+        box-sizing: border-box;
+        border: 1px solid lighten($color-black, 80%);
+        color: $color-black;
+        border-radius: 0;
+        line-height: to-rem(46);
+        min-width: 100%;
+        padding: 0 to-rem(8);
+
+        &::placeholder,
+        &:placeholder-shown {
+            color: lighten($color-black, 20%);
+        }
+
+        &:focus {
+            border-color: $color-black;
+        }
+    }
+
+    &-link {
+        transition: color ease-out .3s;
+        background-color: $color-white;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        text-decoration: none;
+        line-height: to-rem(24);
+        padding-bottom: to-rem(8);
+
+        @include layout-768() {
+            line-height: to-rem(46);
+        }
+
+        &:hover,
+        &:focus {
+            color: $color-accent-2;
+        }
+
+        &:visited {
+            color: lighten($color-black, 80);
+        }
+    }
+
+    &-create,
+    &-edit,
+    &-delete {
+        transition: color .3s ease-out, background-color .3s ease-out;
+        font-weight: 700;
+        border: 2px solid;
+        outline: none;
+        display: block;
+        height: to-rem(48);
+        line-height: to-rem(48);
+        font-size: to-rem(15);
+        padding: 0 to-rem(5);
+        text-align: center;
+        box-sizing: border-box;
+        color: $color-white;
+        display: inline-block;
+        border-radius: 0;
+
+        &:hover,
+        &:focus {
+            background: none;
+        }
+    }
+
+    &-create {
+        border-color: $color-accent-1;
+        background: $color-accent-1;
+        width: 100%;
+
+        &:hover,
+        &:focus {
+            color: $color-accent-1;
+        }
+    }
+
+    &-edit {
+        border-color: $color-accent-2;
+        background: $color-accent-2;
+        width: 50%;
+
+        &:hover,
+        &:focus {
+            color: $color-accent-2;
+        }
+    }
+
+    &-delete {
+        border-color: $color-accent-3;
+        background: $color-accent-3;
+        width: 50%;
+
+        &:hover,
+        &:focus {
+            color: $color-accent-3;
+        }
+    }
+}

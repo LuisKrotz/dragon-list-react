@@ -1,0 +1,26 @@
+.dragon-details {
+    text-align: left;
+
+    &-title {
+        color: $color-accent-2;
+        font-weight: 700;
+        font-size: to-rem(64);
+        line-height: to-rem(64);
+    }
+
+    &-label {
+        display: inline;
+        color: $color-black;
+        font-weight: 700;
+        font-size: to-rem(21);
+        line-height: to-rem(24);
+    }
+
+    &-item {
+        display: inline;
+        color: $color-black;
+        font-weight: 700;
+        font-size: to-rem(15);
+        line-height: to-rem(21);
+    }
+}
