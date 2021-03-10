@@ -9,19 +9,14 @@ function Login() {
           [found, setFound] = useState(false),
           [reset, setReset] = useState(false);
 
-    let errorHtml = "",
-        passwordReset = "";
-
     function validateForm() {
         return user.length > 0 && password.length > 0;
     }
 
     function handleSubmit(event) {
-        let passworderror = '',
-            response = [];
+        let passworderror = '', stop = false;
 
         event.preventDefault();
-
 
         setFound(false);
 
@@ -31,8 +26,10 @@ function Login() {
 
                 }).then((data) => {
                     data.forEach(function (item) {
-                        if (!found && user === item.user && password === item.password) {
+                        if (!stop && user === item.user && password === item.password) {
                             setFound(true);
+                            stop = true;
+
                         }
                     });
 
