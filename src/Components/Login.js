@@ -22,7 +22,8 @@ function Login() {
 
         event.preventDefault();
 
-        () => setFound = false;
+
+        setFound(false);
 
         fetch(url)
             .then((res) => {
@@ -31,19 +32,19 @@ function Login() {
                 }).then((data) => {
                     data.forEach(function (item) {
                         if (!found && user === item.user && password === item.password) {
-                            () => setFound = true;
+                            setFound(true);
                         }
                     });
 
                     if (!found) {
-                        () => setError = 'Please, check your user name and password and try again.';
-                        () => setReset = 'Please, check your user name and password and try again.';
+                        setError('Please, check your user name and password and try again.');
+                        setReset('Please, check your user name and password and try again.');
                     }
 
-                    () => setError(passworderror);
+                    setError(passworderror);
                 })
                 .catch(() => {
-                    () => setError = 'Something went wrong, please try again later.'
+                    setError('Something went wrong, please try again later.');
                 });
     }
 
